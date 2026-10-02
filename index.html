@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="统编版八年级历史上册 第15课 中国工农红军长征与遵义会议 · 互动教学课件">
+<title>第15课 中国工农红军长征与遵义会议 · 互动课件</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/map.css">
+<link rel="stylesheet" href="css/scene.css">
+<link rel="stylesheet" href="css/dialogue.css">
+<link rel="stylesheet" href="css/story.css">
+</head>
+<body>
+
+<!-- ===================== 封面 ===================== -->
+<section class="view view--title is-active" id="view-title">
+  <div class="title__bg"></div>
+  <div class="title__veil"></div>
+  <div class="title__inner">
+    <p class="title__kicker">统编版 · 八年级历史上册 · 第五单元</p>
+    <h1 class="title__main">中国工农红军长征<br><span class="title__accent">与遵义会议</span></h1>
+    <p class="title__sub">第 <b>15</b> 课 · 从国共合作到农村革命根据地的建立</p>
+    <div class="title__meta">
+      <span>1934.10 — 1936.10</span><i></i><span>二万五千里</span><i></i><span>互动路线 · 现场重现</span>
+    </div>
+    <div class="title__actions">
+      <button class="btn btn--primary" data-act="start-story">开始上课 · 剧情模式 <em>▶</em></button>
+      <button class="btn btn--ghost" data-act="start">自由探索路线图</button>
+      <button class="btn btn--ghost" data-act="goto-summary">课堂小结</button>
+    </div>
+    <p class="title__hint">剧情推进 · 答题闯关 · 三维现场旁听会议</p>
+  </div>
+  <div class="title__credit">素材来源：本课配套课件（统编版八上）· 地图：中国工农红军长征路线图</div>
+</section>
+
+
+<!-- ===================== 剧情模式 ===================== -->
+<section class="view view--story" id="view-story">
+  <div class="story__bg" id="storyBg"></div>
+  <div class="story__veil"></div>
+  <div class="story__sprites" id="storySprites"></div>
+
+  <header class="storytop">
+    <button class="btn btn--ghost btn--sm" data-act="story-exit">← 封面</button>
+    <div class="storytop__mid">
+      <span class="storytop__no" id="storyNo">序章</span>
+      <h2 class="storytop__title" id="storyTitle"></h2>
+      <span class="storytop__place" id="storyPlace"></span>
+    </div>
+    <div class="storytop__right">
+      <div class="pbar"><i id="storyBar"></i></div>
+      <span class="storytop__pct" id="storyPct">0 / 7 章</span>
+    </div>
+  </header>
+
+  <div class="chapdots" id="chapDots"></div>
+  <div class="storyhint" id="storyHint"><b>空格 / 回车 / 点击画面</b> 翻页 · <b>A</b> 自动播放 · 答题时按 <b>1-4</b> 选答案</div>
+
+
+  <!-- 跨学科知识卡 -->
+  <div class="geocard" id="geoCard" hidden>
+    <div class="geocard__panel">
+      <div class="geocard__head">
+        <span class="geocard__tag" id="geoTag">地理</span>
+        <h3 class="geocard__title" id="geoTitle"></h3>
+      </div>
+      <div class="geocard__body" id="geoBody"></div>
+      <div class="geocard__foot">
+        <span class="geocard__hint">按 <b>空格</b> 或点击按钮继续</span>
+        <button class="btn btn--primary btn--sm" id="geoNext">知道了 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 答题关卡 -->
+  <div class="quiz" id="quiz" hidden>
+    <span class="quiz__score" id="quizScore"></span>
+    <div class="quiz__panel">
+      <div class="quiz__head">
+        <span class="quiz__tag">答题关卡</span>
+        <span class="quiz__chapter" id="quizChapter"></span>
+      </div>
+      <p class="quiz__q" id="quizQ"></p>
+      <div class="quiz__opts" id="quizOpts"></div>
+      <div class="quiz__foot">
+        <span class="quiz__tip" id="quizTip">选出你认为正确的答案。</span>
+        <button class="btn btn--primary btn--sm" id="quizNext" hidden>继续剧情 →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 路线图 ===================== -->
+<section class="view view--map" id="view-map">
+  <header class="topbar">
+    <button class="btn btn--ghost btn--sm" data-act="home">← 封面</button>
+    <div class="topbar__mid">
+      <span class="topbar__kicker">第15课 · 中国工农红军长征与遵义会议</span>
+      <h2 class="topbar__heading">长征路线图</h2>
+    </div>
+    <div class="topbar__right">
+      <span class="topbar__progress" id="mapProgress">已探索 0 / 15</span>
+      <button class="btn btn--ghost btn--sm" data-act="goto-summary">课堂小结 →</button>
+    </div>
+  </header>
+
+  <div class="mapstage">
+    <div class="mapwrap" id="mapwrap">
+      <div class="mapzoom" id="mapzoom">
+        <img class="mapwrap__img" src="assets/map/route-terrain.webp" alt="中国工农红军长征路线图" draggable="false">
+        <svg class="mapwrap__route" viewBox="0 0 1052 757" preserveAspectRatio="none" aria-hidden="true">
+          <path class="route-halo" id="routeHalo" d=""></path>
+          <path class="route-line" id="routeLine" d=""></path>
+          <path class="route-draw" id="routeDraw" d=""></path>
+        </svg>
+        <div class="markers" id="markers"></div>
+      </div>
+      <div class="mapwrap__legend">
+        <span class="lg lg--start">出发</span>
+        <span class="lg lg--battle">战斗</span>
+        <span class="lg lg--meeting">会议 · 可进入现场</span>
+      </div>
+      <div class="mapwrap__tip" id="mapTip">
+        <b>点击地图上的地点</b>查看事件，标有 <span class="tag-scene">现场</span> 的地点可进入三维重现
+      </div>
+    </div>
+
+    <aside class="infocard" id="infocard" hidden>
+      <button class="infocard__close" data-act="close-card" aria-label="关闭">×</button>
+      <div class="infocard__scroll">
+        <p class="infocard__date" id="cardDate"></p>
+        <h3 class="infocard__title" id="cardTitle"></h3>
+        <p class="infocard__place" id="cardPlace"></p>
+        <div class="infocard__body" id="cardBody"></div>
+        <figure class="infocard__photo" id="cardPhotoWrap" hidden>
+          <img id="cardPhoto" alt="" draggable="false">
+          <figcaption id="cardPhotoCap"></figcaption>
+        </figure>
+      </div>
+      <button class="btn btn--primary infocard__enter" id="cardEnter" hidden>进入现场 <em>▶</em></button>
+    </aside>
+  </div>
+
+  <footer class="timeline" id="timeline">
+    <div class="timeline__track" id="timelineTrack"></div>
+  </footer>
+</section>
+
+<!-- ===================== 三维现场 ===================== -->
+<section class="view view--scene" id="view-scene">
+  <canvas id="sceneCanvas"></canvas>
+  <div class="nametags" id="nametags"></div>
+  <div class="vignette"></div>
+
+  <header class="scenetop">
+    <button class="btn btn--ghost btn--sm" data-act="back-map">← 返回路线图</button>
+    <div class="scenetop__mid">
+      <span class="scenetop__place" id="scenePlace"></span>
+      <h2 class="scenetop__title" id="sceneTitle"></h2>
+    </div>
+    <div class="scenetop__right">
+      <button class="btn btn--ghost btn--sm" data-act="toggle-archive">史料档案</button>
+      <button class="btn btn--ghost btn--sm" data-act="play-all">自动演示</button>
+      <button class="btn btn--ghost btn--sm" data-act="replay">重来</button>
+    </div>
+  </header>
+
+  <div class="scenehint" id="sceneHint">
+    <span><b>拖动</b> 转动视角</span><span><b>点击人物</b> 听他发言</span><span><b>滚轮</b> 远近</span>
+  </div>
+
+  <div class="camcross" id="camcross" title="拖动画面转动视角"></div>
+
+  <aside class="archive" id="archive" hidden>
+    <button class="archive__close" data-act="toggle-archive" aria-label="关闭">×</button>
+    <h3 class="archive__title">史料档案</h3>
+    <div class="archive__list" id="archiveList"></div>
+  </aside>
+
+</section>
+
+<!-- ===================== 课堂小结 ===================== -->
+<section class="view view--summary" id="view-summary">
+  <header class="topbar">
+    <button class="btn btn--ghost btn--sm" data-act="back-map">← 返回路线图</button>
+    <div class="topbar__mid"><h2 class="topbar__heading">课堂小结</h2></div>
+    <div class="topbar__right"><button class="btn btn--ghost btn--sm" data-act="home">封面</button></div>
+  </header>
+  <div class="sum">
+    <div class="sum__col">
+      <article class="panel">
+        <h3 class="panel__t">一、长征的意义</h3>
+        <ul class="panel__list">
+          <li>粉碎了国民党反动派消灭红军的企图</li>
+          <li>保存了党和红军的基干力量，使中国革命<b>转危为安</b></li>
+          <li>播下了革命种子，铸就了<b>长征精神</b>，打开了中国革命的新局面</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h3 class="panel__t">二、遵义会议的历史地位</h3>
+        <ul class="panel__list">
+          <li>开始确立以毛泽东为主要代表的马克思主义正确路线在党中央的领导地位</li>
+          <li>是党的历史上一个<b>生死攸关的转折点</b></li>
+          <li>是中国共产党从幼年走向<b>成熟</b>的标志</li>
+        </ul>
+        <div class="axis">
+          <span class="axis__dot">中共诞生<em>1921</em></span>
+          <span class="axis__line"><i>14年</i></span>
+          <span class="axis__dot axis__dot--key">遵义会议<em>1935</em></span>
+          <span class="axis__line"><i>14年</i></span>
+          <span class="axis__dot">新中国成立<em>1949</em></span>
+        </div>
+      </article>
+      <article class="panel">
+        <h3 class="panel__t">三、文物会说话</h3>
+        <div class="relics">
+          <figure><img src="assets/relic/half-belt.webp" alt="半截皮带"><figcaption>半截皮带 · 中国国家博物馆藏</figcaption></figure>
+          <figure><img src="assets/relic/golden-hook.webp" alt="金色的鱼钩"><figcaption>金色的鱼钩 · 中国人民革命军事博物馆藏</figcaption></figure>
+        </div>
+        <p class="panel__note">单衣爬雪山，绝粮过草地——支撑红军的是<b>革命信仰</b>。</p>
+      </article>
+    </div>
+
+    <div class="sum__col">
+      <article class="panel panel--quiz">
+        <h3 class="panel__t">四、课堂活动 · 给长征事件排序</h3>
+        <p class="panel__hint" id="sortHint">按时间先后，依次点击下面的卡片（共 8 项）。</p>
+        <div class="sortbox">
+          <div class="sortbox__pool" id="sortPool"></div>
+          <ol class="sortbox__slots" id="sortSlots"></ol>
+        </div>
+        <div class="sortbox__foot">
+          <button class="btn btn--primary btn--sm" data-act="check-sort">检查答案</button>
+          <button class="btn btn--ghost btn--sm" data-act="reset-sort">重做</button>
+        </div>
+      </article>
+      <article class="panel">
+        <h3 class="panel__t">五、我们这一代人的长征</h3>
+        <p class="panel__quote">“每一代人有每一代人的长征路，每一代人都要走好自己的长征路。”</p>
+        <p class="panel__note">今天，我们这一代人的长征，就是实现“两个一百年”奋斗目标、实现中华民族伟大复兴的中国梦。</p>
+        <div class="painting"><img src="assets/painting/song-red-army.webp" alt="十送红军"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 全局对话框（剧情模式与三维现场共用，只此一份） ===================== -->
+<div class="vn" id="vn" hidden>
+  <div class="vn__plate" id="vnPlate">
+    <span class="vn__name" id="vnName"></span>
+    <span class="vn__role" id="vnRole"></span>
+  </div>
+  <div class="vn__box" id="vnBox">
+    <p class="vn__text" id="vnText"></p>
+    <div class="vn__choices" id="vnChoices" hidden></div>
+  </div>
+  <div class="vn__ctrl">
+    <button class="vn__btn" data-vn="auto" id="vnAuto">自动</button>
+    <button class="vn__btn" data-vn="skip" id="vnSkip">跳过打字</button>
+    <span class="vn__count" id="vnCount"></span>
+    <span class="vn__next" id="vnNext">▼</span>
+  </div>
+</div>
+
+<!-- ===================== 全局 ===================== -->
+<div class="boot" id="boot">
+  <div class="boot__inner">
+    <div class="boot__spinner"></div>
+    <p class="boot__text">正在准备课件…</p>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js" } }
+</script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
